@@ -1,0 +1,34 @@
+html, body {
+	height: 100%;
+	background-color: #73C2BE;
+}
+
+body {
+	color: #04030F;
+	text-align: center;
+}
+
+.btn {
+	color: #5F1A37;
+	background-color: #776885;
+	border-radius: 15px;
+	border: none;
+}
+
+.btn:hover, .btn:focus, .btn:active{
+	background-color: #73EEDC;
+	color: #04030F;
+	border: none;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-container {
+    width: 700px;
+  }
+}

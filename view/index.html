@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>URL Shortener</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>URL Shortener!</h1>
+	<p>Hello! Please type the URL you want shortened and then press the 'SHORTEN' button. It's that easy!</p>
+	<input type="text" id="urlLink" placeholder="Paste your link here!">
+	<button class="btn" id="btn-shorten" type="button">Shorten Me!</button>
+	<div id="link"></div>
+	<script type="text/javascript">
+		$('#btn-shorten').on('click', function(){
+
+		  $.ajax({
+		    url: '/api/shorten',
+		    type: 'POST',
+		    dataType: 'JSON',
+		    data: {url: $('#urlLink').val()},
+		    success: function(data){
+		        var resultHTML = '<a class="result" href="' + data.shortUrl + '">'
+		            + data.shortUrl + '</a>';
+		        $('#link').html(resultHTML);
+		        $('#link').hide().fadeIn('slow');
+		    }
+		  });
+
+		});
+	</script>
+</body>
+</html>
